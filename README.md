@@ -1,2 +1,1 @@
-# docker-stable_diffusion
-Stable Diffusion Docker
+# Stable Diffusion Docker
