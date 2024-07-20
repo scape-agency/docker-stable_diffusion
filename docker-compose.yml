@@ -18,7 +18,7 @@ name: webui-docker
 
 services:
   download:
-    build: ./services/download/
+    build: ./src/download/
     profiles: ["download"]
     volumes:
       - *v1
@@ -26,7 +26,7 @@ services:
   auto: &automatic
     <<: *base_service
     profiles: ["auto"]
-    build: ./services/AUTOMATIC1111
+    build: ./src/automatic1111
     image: sd-auto:78
     environment:
       - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
@@ -41,11 +41,10 @@ services:
   comfy: &comfy
     <<: *base_service
     profiles: ["comfy"]
-    build: ./services/comfy/
+    build: ./src/comfy/
     image: sd-comfy:7
     environment:
       - CLI_ARGS=
-
 
   comfy-cpu:
     <<: *comfy
