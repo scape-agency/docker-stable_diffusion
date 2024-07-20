@@ -5,8 +5,9 @@
 # =============================================================================
 
 # Use the official PyTorch image from NVIDIA as a base image
-FROM pytorch/pytorch:latest
-# FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime
+# FROM python:3.11-slim-bullseye
+# FROM pytorch/pytorch:latest
+FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
 
 
 # System Dependencies
@@ -51,3 +52,16 @@ COPY run_stable_diffusion.sh /workspace/stable-diffusion/
 
 # Set the entrypoint
 ENTRYPOINT ["bash", "run_stable_diffusion.sh"]
+
+
+
+
+# ENV GRADIO_SERVER_PORT=7860
+# ENV GRADIO_SERVER_NAME=0.0.0.0
+# EXPOSE 7860
+# ENTRYPOINT ["python3", "server.py"]
+
+# WORKDIR /app
+# COPY *.py requirements.txt *.pickle /app
+# RUN apt update && apt install -y git
+# RUN pip install -r requirements.txt
