@@ -43,7 +43,8 @@ This command runs the Stable Diffusion 2.1 model to generate an image based on t
 
 
 
-
+https://github.com/fboulnois/stable-diffusion-docker
+https://github.com/AbdBarho/stable-diffusion-webui-docker
 
 
 # Stable Diffusion WebUI Docker
