@@ -38,60 +38,26 @@ python scripts/txt2img.py --model 'stabilityai/stable-diffusion-2-1' --prompt "A
 
 This command runs the Stable Diffusion 2.1 model to generate an image based on the prompt "A futuristic cityscape" using the PLMS sampling method.
 
+## Supported Interfaces
 
+Please consult each respective website for a comprehensive description and usage guidelines.
 
+| Name            | Description                                                                                                             | URL                                                   |
+| :-------------- | :---------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------- |
+| Automatic1111   | A browser interface based on Gradio library for Stable Diffusion.                                                       | [https://github.com/AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) |
+| ComfyUI         | A powerful and modular stable diffusion GUI and backend.                                                                | [https://github.com/comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI)  |
+| Easy diffusion  | The easiest way to install and use Stable Diffusion on your computer.                                                   | [https://github.com/easydiffusion/easydiffusion](https://github.com/easydiffusion/easydiffusion) |
+| FaceFusion      | Next generation face swapper and enhancer.                                                                              | [https://github.com/facefusion/facefusion](https://github.com/facefusion/facefusion) |
+| Fooocus         | Fooocus is a rethinking of Stable Diffusion and Midjourney’s designs.                                                   | [https://github.com/lllyasviel/Fooocus](https://github.com/lllyasviel/Fooocus)      |
+| Forge           | An optimized fork of Automatic1111.                                                                                     | [https://github.com/lllyasviel/stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge) |
+| InvokeAI        | InvokeAI is a leading creative engine for Stable Diffusion models.                                                      | [https://github.com/invoke-ai](https://github.com/invoke-ai)              |
+| Kohya           | Kohya's GUI provides a Windows-focused Gradio GUI for Kohya's Stable Diffusion trainers.                                | [https://github.com/bmaltais/kohya_ss](https://github.com/bmaltais/kohya_ss)         |
+| Lama Cleaner    | A free and open-source inpainting tool powered by SOTA AI model.                                                        | [https://github.com/Sanster/lama-cleaner](https://github.com/Sanster/lama-cleaner) |
+| SD.Next         | This project started as a fork from Automatic1111 WebUI and it grew significantly.                                      | [https://github.com/vladmandic/automatic](https://github.com/vladmandic/automatic)    |
+| SwarmUI         | A modular Stable Diffusion Web-User-Interface, with an emphasis on making powertools easily accessible, high performance, and extensibility.    | [https://github.com/mcmonkeyprojects/SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI) |
 
+## References
 
-
-https://github.com/fboulnois/stable-diffusion-docker
-https://github.com/AbdBarho/stable-diffusion-webui-docker
-
-
-# Stable Diffusion WebUI Docker
-
-Run Stable Diffusion on your machine with a nice UI without any hassle!
-
-## Setup & Usage
-
-Visit the wiki for [Setup](https://github.com/AbdBarho/stable-diffusion-webui-docker/wiki/Setup) and [Usage](https://github.com/AbdBarho/stable-diffusion-webui-docker/wiki/Usage) instructions, checkout the [FAQ](https://github.com/AbdBarho/stable-diffusion-webui-docker/wiki/FAQ) page if you face any problems, or create a new issue!
-
-## Features
-
-This repository provides multiple UIs for you to play around with stable diffusion:
-
-### [AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
-
-[Full feature list here](https://github.com/AUTOMATIC1111/stable-diffusion-webui-feature-showcase), Screenshots:
-
-| Text to image                                                                                              | Image to image                                                                                             | Extras                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| ![](https://user-images.githubusercontent.com/24505302/189541954-46afd772-d0c8-4005-874c-e2eca40c02f2.jpg) | ![](https://user-images.githubusercontent.com/24505302/189541956-5b528de7-1b5d-479f-a1db-d3f5a53afc59.jpg) | ![](https://user-images.githubusercontent.com/24505302/189541957-cf78b352-a071-486d-8889-f26952779a61.jpg) |
-
-### [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
-
-[Full feature list here](https://github.com/comfyanonymous/ComfyUI#features), Screenshot:
-
-| Workflow                                                                         |
-| -------------------------------------------------------------------------------- |
-| ![](https://github.com/comfyanonymous/ComfyUI/raw/master/comfyui_screenshot.png) |
-
-## Contributing
-
-Contributions are welcome! **Create a discussion first of what the problem is and what you want to contribute (before you implement anything)**
-
-## Disclaimer
-
-The authors of this project are not responsible for any content generated using this interface.
-
-This license of this software forbids you from sharing any content that violates any laws, produce any harm to a person, disseminate any personal information that would be meant for harm, spread misinformation and target vulnerable groups. For the full list of restrictions please read [the license](./LICENSE).
-
-## Thanks
-
-Special thanks to everyone behind these awesome projects, without them, none of this would have been possible:
-
-- [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
-- [InvokeAI](https://github.com/invoke-ai/InvokeAI)
-- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
-- [CompVis/stable-diffusion](https://github.com/CompVis/stable-diffusion)
-- [Sygil-webui](https://github.com/Sygil-Dev/sygil-webui)
-- and many many more.
+- https://github.com/fboulnois/stable-diffusion-docker
+- https://github.com/AbdBarho/stable-diffusion-webui-docker
+- https://github.com/grokuku/stable-diffusion
