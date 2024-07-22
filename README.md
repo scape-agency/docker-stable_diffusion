@@ -61,3 +61,7 @@ Please consult each respective website for a comprehensive description and usage
 - https://github.com/fboulnois/stable-diffusion-docker
 - https://github.com/AbdBarho/stable-diffusion-webui-docker
 - https://github.com/grokuku/stable-diffusion
+- https://github.com/ai-dock/
+- https://github.com/YanWenKun/ComfyUI-Docker
+- https://github.com/bentoml/stable-diffusion-server
+- https://github.com/AbdBarho/stable-diffusion-webui-docker/tree/master
