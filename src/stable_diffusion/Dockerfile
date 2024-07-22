@@ -4,64 +4,99 @@
 # Base Image
 # =============================================================================
 
-# Use the official PyTorch image from NVIDIA as a base image
-# FROM python:3.11-slim-bullseye
-# FROM pytorch/pytorch:latest
-FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
+# Use the official slim Python image based on Debian Bullseye
+FROM python:3.11-slim-bullseye
 
 
 # System Dependencies
 # =============================================================================
-
-# Install system dependencies
+# Install necessary system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
     wget \
-    ffmpeg \
-    libsm6 \
-    libxext6 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 
+
+# Remove unnecessary CUDA stubs
+RUN rm -rf /usr/local/cuda/lib64/stubs
+
+
 # Python Dependencies
 # =============================================================================
+# Copy requirements file and install Python dependencies
+COPY ./etc/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt \
+    --extra-index-url https://download.pytorch.org/whl/cu118 \
+    && rm /tmp/requirements.txt
+
+
+
+# Copy requirements file
+# COPY requirements.txt /requirements.txt
+# COPY requirements.txt /
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r /requirements.txt \
+#   --extra-index-url https://download.pytorch.org/whl/cu118
+# RUN pip install -r requirements.txt \
+#   --extra-index-url https://download.pytorch.org/whl/cu118
 
 
-# Install
+
+
+# Non-root User Setup
 # =============================================================================
+# Create a non-root user 'huggingface'
+RUN useradd -m -s /bin/bash huggingface
+# RUN useradd -m huggingface
 
-# Create a working directory
-WORKDIR /workspace
+# Switch to non-root user
+USER huggingface
 
-# Clone the Stable Diffusion repository
-RUN git clone https://github.com/CompVis/stable-diffusion.git
 
-# Change to the stable-diffusion directory
-WORKDIR /workspace/stable-diffusion
+# Working Directory
+# =============================================================================
+# Set the working directory
+WORKDIR /home/huggingface
 
-# Add a script to run Stable Diffusion
-COPY run_stable_diffusion.sh /workspace/stable-diffusion/
+# Environment Variables
+# =============================================================================
+# Set environment variables
+ENV USE_TORCH=1 \
+    PYTHONUNBUFFERED=1
+
+# Create necessary directories
+RUN mkdir -p \
+    /home/huggingface/.cache/huggingface \
+    /home/huggingface/input \
+    /home/huggingface/output
+
+
+# RUN mkdir -p /home/huggingface/.cache/huggingface \
+#   && mkdir -p /home/huggingface/input \
+#   && mkdir -p /home/huggingface/output
+
+
+# Copy scripts and files
+# =============================================================================
+# Copy the entrypoint script and token
+COPY --chown=huggingface:huggingface docker-entrypoint.py /usr/local/bin/
+COPY --chown=huggingface:huggingface token.txt /home/huggingface/token.txt
+
+# Ensure the entrypoint script is executable
+RUN chmod +x /usr/local/bin/docker-entrypoint.py
+
+
+# COPY docker-entrypoint.py /usr/local/bin
+# COPY token.txt /home/huggingface
+
+
 
 
 # Entrypoint
 # =============================================================================
-
 # Set the entrypoint
-ENTRYPOINT ["bash", "run_stable_diffusion.sh"]
+ENTRYPOINT ["docker-entrypoint.py"]
 
 
-
-
-# ENV GRADIO_SERVER_PORT=7860
-# ENV GRADIO_SERVER_NAME=0.0.0.0
-# EXPOSE 7860
-# ENTRYPOINT ["python3", "server.py"]
-
-# WORKDIR /app
-# COPY *.py requirements.txt *.pickle /app
-# RUN apt update && apt install -y git
-# RUN pip install -r requirements.txt
